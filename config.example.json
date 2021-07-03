@@ -1,0 +1,14 @@
+{
+    "config":{
+        "useGrid": false,
+        "grid":"http://localhost:4444",
+        "browser":{
+            "name":"[chrome || firefox || safari || edge]",
+            "executablePath":"[PathToExecutable]"
+        },
+        "implicitWait": 10,
+        "environment":{
+            "url":"http://automationpractice.com/"
+        }
+    }
+}
