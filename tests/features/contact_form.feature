@@ -17,11 +17,11 @@ Feature: Home Visualization
 
     Examples:
         |      subject     |      email      | order | input_file |    content   |    result     |
-        |     Webmaster    | some@domain.com |  111a | test_1.txt | some content |    suceess    |
-        |     Webmaster    | some@domain.edu |       | test_1.txt | some content |    suceess    |
-        |                  | some@domain.com |  111a | test_1.txt | some content | subject_error |
-        |     Webmaster    |                 |  112a | test_2.pdf | some content |  email_error  |
-        |     Webmaster    | some@domain.com |  113a | test_3.jpg |              | content_error |
+        |     Webmaster    | some@domain.com |  111a | test_1.txt | some content |    suceess    |
+        |     Webmaster    | some@domain.edu |       | test_1.txt | some content |    suceess    |
+        |                  | some@domain.com |  111a | test_1.txt | some content | subject_error |
+        |     Webmaster    |                 |  112a | test_2.pdf | some content |  email_error  |
+        |     Webmaster    | some@domain.com |  113a | test_3.jpg |              | content_error |
         | Customer service | some@domain.co  |  214b | test_1.txt | some content |    suceess    |
         | Customer service | some@domain.es  |       | test_1.txt | some content |    suceess    |
         | Customer service |                 |  215b | test_2.pdf | some content |  email_error  |
