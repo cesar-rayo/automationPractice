@@ -21,6 +21,8 @@ services:
             SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
         deploy:
             replicas: 1
+        ports:
+            - "5901:5900"
 
     firefox:
         image: selenium/node-firefox:85.0
@@ -35,6 +37,8 @@ services:
             SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
         deploy:
             replicas: 1
+        ports:
+            - "5902:5900"
 
     edge:
         image: selenium/node-edge:4.0.0
@@ -49,6 +53,8 @@ services:
             SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
         deploy:
             replicas: 1
+        ports:
+            - "5903:5900"
 
     opera:
         image: selenium/node-opera:74.0
@@ -63,3 +69,5 @@ services:
             SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
         deploy:
             replicas: 1
+        ports:
+            - "5904:5900"

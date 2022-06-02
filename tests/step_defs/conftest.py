@@ -1,19 +1,19 @@
 import sys
-sys.path.append('./')
-
 import pytest
 import logging
 import json
 import validators
 import selenium.webdriver
-
 from helpers.constants import SUPPORTED_BROWSERS
 
+sys.path.append('./')
 LOGGER = logging.getLogger(__name__)
+
 
 @pytest.fixture(scope='function')
 def context():
     return {}
+
 
 @pytest.fixture
 def config(scope="session"):
@@ -33,6 +33,7 @@ def config(scope="session"):
 
     return config
 
+
 @pytest.fixture
 def web_browser(config, scope="function"):
     global _driver
@@ -51,39 +52,40 @@ def web_browser(config, scope="function"):
     except Exception as err:
         LOGGER.error(err)
 
+
 def initialize_remote_driver(browser_name, grid_url):
     LOGGER.info("Web Driver [ {} ] using [ Selenium Grid ]".format(browser_name))
     if browser_name == 'chrome':
         options = selenium.webdriver.ChromeOptions()
         options.headless = True
         driver = selenium.webdriver.Remote(
-        command_executor=grid_url,
-        options=options,
-        desired_capabilities={
-            'browserName': 'chrome',
-            'acceptInsecureCerts': True
-        })
+            command_executor=grid_url,
+            options=options,
+            desired_capabilities={
+                'browserName': 'chrome',
+                'acceptInsecureCerts': True
+            })
     elif browser_name == 'firefox':
         driver = selenium.webdriver.Remote(
-        command_executor=grid_url,
-        desired_capabilities={
-            'browserName': 'firefox',
-            'acceptInsecureCerts': True
-        })
+            command_executor=grid_url,
+            desired_capabilities={
+                'browserName': 'firefox',
+                'acceptInsecureCerts': True
+            })
     elif browser_name == 'safari':
         driver = selenium.webdriver.Remote(
-        command_executor=grid_url,
-        desired_capabilities={
-            'browserName': 'operablink',
-            'acceptInsecureCerts': True
-        })
+            command_executor=grid_url,
+            desired_capabilities={
+                'browserName': 'operablink',
+                'acceptInsecureCerts': True
+            })
     elif browser_name == 'edge':
         driver = selenium.webdriver.Remote(
-        command_executor=grid_url,
-        desired_capabilities={
-            'browserName': 'MicrosoftEdge',
-            'acceptInsecureCerts': True
-        })
+            command_executor=grid_url,
+            desired_capabilities={
+                'browserName': 'MicrosoftEdge',
+                'acceptInsecureCerts': True
+            })
     return driver
 
 
@@ -115,11 +117,12 @@ from pytest_bdd import (
 
 from pages.home import HomePage
 
+
 @given('The Customer visits Home Page')
 def visit_home(config, web_browser, context):
     LOGGER.info("> Loading Home page")
     home_page = HomePage(web_browser, config)
     home_page.load()
-    
+
     context['browser'] = home_page
     assert "508 Resource Limit Is Reached" not in home_page.title(), "Seems the page is not available"
