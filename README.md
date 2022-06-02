@@ -2,7 +2,6 @@
 
 ## Running Selenium Grid
 
-
 This with the intention to do not set up any local configuration, all you need to have installed is docker, where we will deploy a Selenium Grid and the automation scripts can consume it to execute the tests in the various browsers (Edge, Chrome, Firefox and Safari)
 ```
 $ cd selenium_grid
